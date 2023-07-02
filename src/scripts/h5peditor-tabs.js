@@ -24,7 +24,9 @@ export default class Tabs {
     this.$container = H5P.jQuery('<div>', { class: 'h5peditor-tabs' });
 
     // Instantiate original field (or create your own and call setValue)
-    this.libraryTabs = new H5PEditor.widgets[this.field.type](this.parent, this.field, this.params, this.setValue);
+    this.libraryTabs = new H5PEditor.widgets[this.field.type](
+      this.parent, this.field, this.params, this.setValue
+    );
     this.libraryTabs.appendTo(this.$container);
 
     // Remove Tabs as option from subcontent
@@ -192,7 +194,8 @@ export default class Tabs {
    */
   sanitizeColumnDOM(columnTabsIds = []) {
     // Remove Tabs from editor DOM
-    const columnContentsDOM = this.libraryTabs.$libraryWrapper.get(0).querySelector('.list > .h5peditor-widget-wrapper > ul');
+    const columnContentsDOM = this.libraryTabs.$libraryWrapper.get(0)
+      .querySelector('.list > .h5peditor-widget-wrapper > ul');
     if (!columnContentsDOM.childNodes) {
       return;
     }
