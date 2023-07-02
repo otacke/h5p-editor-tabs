@@ -8,6 +8,12 @@ const libraryName = process.env.npm_package_name;
 
 module.exports = {
   mode: mode,
+  resolve: {
+    alias: {
+      '@scripts': path.resolve(__dirname, 'src/scripts'),
+      '@styles': path.resolve(__dirname, 'src/styles')
+    }
+  },
   optimization: {
     minimize: mode === 'production',
     minimizer: [

@@ -1,4 +1,4 @@
-import './../styles/h5peditor-tabs.scss';
+import '@styles/h5peditor-tabs.scss';
 
 export default class Tabs {
   /**
