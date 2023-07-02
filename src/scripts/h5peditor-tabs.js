@@ -52,7 +52,6 @@ export default class Tabs {
 
   /**
    * Append field to wrapper. Invoked by H5P core.
-   *
    * @param {H5P.jQuery} $wrapper Wrapper.
    */
   appendTo($wrapper) {
@@ -61,7 +60,6 @@ export default class Tabs {
 
   /**
    * Validate current values. Invoked by H5P core.
-   *
    * @returns {boolean} True, if current value is valid, else false.
    */
   validate() {
@@ -125,7 +123,6 @@ export default class Tabs {
 
   /**
    * Wait for Column options to be loaded to DOM.
-   *
    * @param {HTMLElement} selectColumn Select field DOM.
    * @param {number} timeout Timeout in seconds, minimum 100ms.
    * @param {object} callback Callback function.
@@ -151,7 +148,6 @@ export default class Tabs {
 
   /**
    * Find ids of Tabs instances in Column.
-   *
    * @returns {number[]} Ids of Tabs instances in Column.
    */
   findTabsIds() {
@@ -174,7 +170,6 @@ export default class Tabs {
 
   /**
    * Sanitize Column parameters.
-   *
    * @param {number[]} columnTabsIds Ids of Tabs instances in Column.
    */
   sanitizeColumnParams(columnTabsIds = []) {
@@ -193,7 +188,6 @@ export default class Tabs {
 
   /**
    * Sanitize Column DOM in editor.
-   *
    * @param {number[]} columnTabsIds Ids of Tabs instances in Column.
    */
   sanitizeColumnDOM(columnTabsIds = []) {
