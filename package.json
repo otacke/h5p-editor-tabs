@@ -1,6 +1,6 @@
 {
   "name": "h5p-editor-tabs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Editor widget for H5P.Tabs",
   "private": true,
   "scripts": {
