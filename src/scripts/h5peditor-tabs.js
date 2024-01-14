@@ -1,6 +1,6 @@
 import '@styles/h5peditor-tabs.scss';
 
-export default class Tabs {
+export default class Tabs extends H5PEditor.Library {
   /**
    * @class
    * @param {object} parent Parent element in semantics.
@@ -9,6 +9,7 @@ export default class Tabs {
    * @param {function} setValue Callback to set parameters.
    */
   constructor(parent, field = {}, params, setValue) {
+    super(parent, field, params, setValue);
     this.parent = parent;
     this.field = field;
     this.params = params;
@@ -29,8 +30,15 @@ export default class Tabs {
     );
     this.libraryTabs.appendTo(this.$container);
 
+    // Make library select element from orginal field available, other widgets may expect it
+    this.$select = this.libraryTabs.$select;
+
     // Remove Tabs as option from subcontent
     this.libraryTabs.change(() => {
+      // Make variables from orginal field available, other widgets may expect them
+      this.libraries = this.libraryTabs.libraries;
+      this.metadataForm = this.libraryTabs.metadataForm;
+
       this.sanitizeColumnOptions();
 
       const columnTabsIds = this.findTabsIds();
