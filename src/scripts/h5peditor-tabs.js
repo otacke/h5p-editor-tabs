@@ -32,6 +32,9 @@ export default class Tabs extends H5PEditor.Library {
 
     // Make library select element from orginal field available, other widgets may expect it
     this.$select = this.libraryTabs.$select;
+    this.params = this.libraryTabs.params;
+    this.libraries = this.libraryTabs.libraries;
+    this.metadataForm = this.libraryTabs.metadataForm;
 
     // Remove Tabs as option from subcontent
     this.libraryTabs.change(() => {
