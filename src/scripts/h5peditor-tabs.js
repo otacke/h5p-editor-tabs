@@ -1,5 +1,8 @@
 import '@styles/h5peditor-tabs.scss';
 
+/** @constant {number} DEFAULT_WAIT_TIMEOUT_MS Default wait timeout in milliseconds. */
+const DEFAULT_WAIT_TIMEOUT_MS = 200;
+
 export default class Tabs extends H5PEditor.Library {
   /**
    * @class
@@ -26,7 +29,7 @@ export default class Tabs extends H5PEditor.Library {
 
     // Instantiate original field (or create your own and call setValue)
     this.libraryTabs = new H5PEditor.widgets[this.field.type](
-      this.parent, this.field, this.params, this.setValue
+      this.parent, this.field, this.params, this.setValue,
     );
     this.libraryTabs.appendTo(this.$container);
 
@@ -123,7 +126,7 @@ export default class Tabs extends H5PEditor.Library {
        */
       const selectColumn = libraryColumn.$select.get(0);
 
-      this.waitForColumnOptions(selectColumn, 200, () => {
+      this.waitForColumnOptions(selectColumn, undefined, () => {
         // Remove Tabs from Column DOM options, first option is '-'
         for (let i = selectColumn.children.length - 1; i >= 1; i--) {
           if (selectColumn.children[i].value.indexOf('H5P.Tabs ') !== -1) {
@@ -146,12 +149,12 @@ export default class Tabs extends H5PEditor.Library {
     }
 
     if (typeof timeout !== 'number' || timeout < 100) {
-      timeout = 200;
+      timeout = DEFAULT_WAIT_TIMEOUT_MS;
     }
 
     if (selectColumn.children.length === 1) {
       setTimeout(
-        this.waitForColumnOptions, timeout, selectColumn, timeout, callback
+        this.waitForColumnOptions, timeout, selectColumn, timeout, callback,
       );
     }
     else {
